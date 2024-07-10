@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ------- GRID SYSTEM ------- */
+img {
+    width: 100%;
+    display: block;
+    height: 100%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 1200px;
+    margin: 20px auto;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 1px 1px 3px gray;
+}
+
+.img-container {
+    margin: 10px;
+    border: solid rgb(240, 185, 185) 3px;
+}
+
+/* -------- MEDIA QUERY -------*/
+/* breakpoint for large screen up to 1200px*/
+@media screen and (max-width:1200px) {
+    .grid-container {
+        background-color: pink;
+        width: 800px;
+        grid-template-columns: auto auto;
+    }
+}
+
+/*breakpoint for medium screen size up to 900px*/
+@media screen and (max-width: 900px) {
+    .grid-container {
+        background-color: chartreuse;
+        width: 80%;
+        grid-template-columns: auto;
+    }
+}
+
+/* ----- MAIN CONTAINER -------*/
+.header-container {
+    background-color: purple;
+    color: white;
+    display: flex;
+    width: 100%
+}
+
+.header-container>div {
+
+    padding: 20px;
+}
+
+.header-container>div:nth-child(3) {
+    margin-left: auto;
+}
+
+.intro-container {
+    display: grid;
+    height: 300px;
+    grid-template-columns: 20% 50% 30%;
+}
+
+.nav-menu {
+    background-color: lightpink;
+}
+
+.content {
+    background-color: hotpink;
+}
+
+.blog {
+    background-color: rgb(230, 0, 120);
+}
+
+.footer {
+    background-color: rgb(50, 20, 50);
+    color: white;
+    height: 200px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+
+}
+
+.footer>div {
+    border: solid pink 2px;
+}
+
+@media screen and (max-width:900px) {
+
+    .content {
+        grid-column: span 2;
+    }
+
+    .blog {
+        grid-column: span 3;
+    }
+}
+@media screen and (max-width:600px){
+    .nav-menu{
+        grid-column: span 1;
+    }
+    
+}
