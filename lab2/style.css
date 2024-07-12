@@ -104,9 +104,15 @@ img {
         grid-column: span 3;
     }
 }
-@media screen and (max-width:600px){
-    .nav-menu{
-        grid-column: span 1;
+
+@media screen and (max-width:600px) {
+    .nav-menu {
+        grid-column: span 3;
     }
-    
+    .content{
+        grid-column: span 3;
+    }
+    .blog {
+        grid-template-columns: span 3;
+    }
 }
