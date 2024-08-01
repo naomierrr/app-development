@@ -1,0 +1,38 @@
+*{box-sizing: border-box;}
+body{
+    background-color: rgb(10,10,100);
+    color: white;
+}
+.login{
+    width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    color: rgb(10,10,100);
+}
+.formcontrol{
+    margin-top: 20px;
+}
+.myform legend{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+.formcontrol input[type="submit"]{
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(10,10,100);
+    color: white;
+    transition: ease-in-out;
+    border: none;
+}
+.formcontrol input[type="submit"]:hover{
+    background-color: crimson;
+    font-weight: bolder;
+    box-shadow: 0px 0px 2px 1px gray;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.formcontrol input{
+    padding: 5px;
+}
