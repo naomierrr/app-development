@@ -1,0 +1,16 @@
+<h2 class="component_title">This is an item component</h2>
+<p>item works!</p>
+<p>Welcome to Angular {{username}}</p>
+<section>
+    <h3>{{itemname}}</h3>
+    <p>Product {{itemname}} is stock? {{getStockStatus()}}</p>
+    <button class="btncart" [disabled] = "isSoldOut">Add to Cart</button>
+</section>
+
+<h2>Event binding</h2>
+<button (click)="onSave()">Save</button>
+<button (click)="addProduct()" [disabled] = "btn_out_stock" class="btn_out_stock">ADD PRODUCT</button>
+<p>{{productmsg}}</p>
+<p>only {{total_in_stock}} items left!</p> <span>{{outStock}}</span>
+<p>Total of {{total_added}} items added to cart</p>
+
