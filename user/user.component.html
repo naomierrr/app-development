@@ -1,0 +1,50 @@
+<section class="container">
+    <form class="form" #form="ngForm" (ngSubmit)="submitForm(form)">
+        <h1 class="formtitle">Signup Form</h1>
+        <!--From error message -->
+        <div class="formErrorMsg" *ngIf="form.invalid && formSubmit">
+            <p>There is a problem with the form information</p>
+        </div>
+        <!--collect username-->
+        <div class="form_control">
+            <label for="username">Username: </label>
+            <input type="text" id="username" placeholder="Type username..." [(ngModel)]="newuser.name" name="userName"
+                #name='ngModel' (change)="displaylog(name)" required minlength="3" maxlength="30">
+            <!--Error message-->
+            <div class="validMsg" *ngIf="!name.valid && name.touched">
+                <p *ngIf="name.errors?.['required']">Name is required</p>
+                <p *ngIf="name.errors?.['minlength']">Name must be at least 2 characters</p>
+            </div>
+        </div>
+
+        <!--collect email-->
+        <div class="form_control">
+            <label for="email">Email: </label>
+            <input type="email" id="email" placeholder="Type email address..." [(ngModel)]="newuser.email"
+                name="userEmail" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+            <!--Error message-->
+            <div class="validMsg" *ngIf="!email.valid && email.touched">
+                <p *ngIf="email.errors?.['required']">Email is required</p>
+                <p *ngIf="email.errors?.['pattern']">Invalid email address format!</p>
+            </div>
+        </div>
+
+        <!--submit button-->
+        <div class="form_control">
+            <button type="submit" class="btnsubmit" [disabled]="formSubmit && form.invalid">Submit</button>
+        </div>
+
+        <!--JSON display-->
+        <div class="jsondisplay" *ngIf="form.valid && form.submitted">
+            <p>Thank you for registering <b>{{parsedJsonName}}</b></p>
+            <p>Your confirmation number was sent to {{parsedJsonEmail}}</p>
+        </div>
+        <!--Loop all users -->
+        <div *ngIf="!form.valid && form.submitted">
+            <h2>New user List</h2>
+            <ul>
+                <li *ngFor = "let user of model.getuser()">{{user.id}} -- {{user.name}}, {{user.email}}</li>
+            </ul>
+        </div>
+    </form>
+</section>
