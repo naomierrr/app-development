@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Leave your feedback{% endblock %}
+{% block content %}
+<h1>Leave your feedback</h1>
+
+{% load static %}
+<div class="product-image">
+    <img src="{% static 'images/product1.jpg' %}" alt="Product Image" />
+</div>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="id_rating">Rating:</label>
+    {{ form.rating }}
+    
+    <label for="id_review">Review:</label>
+    {{ form.review }}
+    
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock %}
+

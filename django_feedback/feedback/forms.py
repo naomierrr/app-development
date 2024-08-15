@@ -1,0 +1,15 @@
+from django import forms
+
+from .models import Feedback, AnonymousFeedback
+
+class FeedbackForm(forms.ModelForm):
+    class Meta: 
+        model = Feedback
+        fields = ['rating', 'review']
+        exclude = ('user',)
+    
+class AnonymousFeedbackForm(forms.ModelForm):
+    class Meta: 
+        model = AnonymousFeedback
+        fields = ['rating', 'review']
+        exclude = ('user',)

@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+{% block title %}View Feedback{% endblock %}
+{% block content %}
+<h1>Feedback from Users</h1>
+<h2>Feedback display</h2>
+<p>Scroll down to the buttom to write more reviews.</p>
+<div class="feedback-container">
+    {% for feedback in anonymous_feedback_list %}
+        <div class="feedback-item">
+            <h3>{{ feedback.get_rating_display }}</h3>
+            <p>{{ feedback.review }}</p>
+            <p><strong>Submitted on:</strong> {{ feedback.time|date:"Y-m-d H:i" }}</p>
+            <p><strong>Submitted by:</strong> Anonymous</p>
+        </div>
+    {% empty %}
+        <p>No feedback available.</p>
+    {% endfor %}
+</div>
+<a href="{% url 'leave_feedback' %}">Leave more feedback</a>
+{% endblock %}
+
+
